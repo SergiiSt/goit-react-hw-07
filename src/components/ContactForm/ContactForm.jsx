@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addContact } from "../../redux/contacts/contactsApi";
 import css from "./ContactForm.module.css";
 import { selectContacts } from "../../redux/contacts/contactsSlice";
+import { FaUserPlus } from "react-icons/fa";
+import { BsFillTelephonePlusFill } from "react-icons/bs";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string()
@@ -19,7 +21,6 @@ const ContactSchema = Yup.object().shape({
 export default function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
-  
 
   const handlerSubmit = (values, actions) => {
     const existingContact = contacts.find(
@@ -44,13 +45,15 @@ export default function ContactForm() {
     >
       <Form className={css.formWrap}>
         <div className={css.fieldWrap}>
-          <label className={css.label}>Name</label>
+          <label className={css.label}>
+            Name <FaUserPlus className={css.userIcon}/>
+          </label>
           <Field className={css.field} type="text" name="name" />
           <ErrorMessage className={css.error} name="name" component="div" />
         </div>
 
         <div className={css.fieldWrap}>
-          <label className={css.label}>Number</label>
+          <label className={css.label}>Number<BsFillTelephonePlusFill className={css.phoneIcon}/></label>
           <Field className={css.field} type="text" name="number" />
           <ErrorMessage className={css.error} name="number" component="div" />
         </div>

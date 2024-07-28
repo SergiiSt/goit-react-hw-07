@@ -10,7 +10,7 @@ export default function ContactList() {
   const visibleContacts = useSelector(selectVisibleContacts);
 
   return (
-    <div>
+    <div className={css.listWrap}>
       <ul className={css.list}>
         {visibleContacts.map((contact) => (
           <li key={contact.id}>

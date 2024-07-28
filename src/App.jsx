@@ -13,12 +13,12 @@ function App() {
     dispatch(fetchContacts());
   }, [dispatch]);
   return (
-    <>
+    < div className={css.container}>
       <h1 className={css.pageTitle}>Phonebook</h1>
       <ContactForm />
       <SearchBox />
       <ContactList />
-    </>
+    </ div>
   );
 }
 
